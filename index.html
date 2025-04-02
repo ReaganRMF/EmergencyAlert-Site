@@ -1,0 +1,389 @@
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EmergencyAlert - Urgences Médicales</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/emergency-styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="logo-container">
+            <svg class="logo" viewBox="0 0 200 60" xmlns="http://www.w3.org/2000/svg">
+                <rect x="10" y="10" width="40" height="40" rx="8" fill="#e63946" class="pulse-animation"/>
+                <path d="M30 15 L30 45 M15 30 L45 30" stroke="white" stroke-width="6" stroke-linecap="round"/>
+                <text x="60" y="35" font-family="Arial, sans-serif" font-weight="bold" font-size="20" fill="#1d3557">EmergencyAlert</text>
+            </svg>
+        </div>
+        <nav class="main-nav">
+            <div class="nav-container">
+                <ul class="nav-links">
+                    <li class="nav-item"><a href="index.html" class="nav-link active">Accueil</a></li>
+                    <li class="nav-item"><a href="index.html" class="nav-link">Urgences</a></li>
+                    <li class="nav-item"><a href="index.html" class="nav-link">Premiers Secours</a></li>
+                    <li class="nav-item"><a href="index.html" class="nav-link">Ressources</a></li>
+                    <li class="nav-item"><a href="index.html" class="nav-link">Contact</a></li>
+                </ul>
+                <div class="emergency-call">
+                    <span class="blink-animation"><i class="fas fa-phone-alt"></i></span>
+                    <span class="emergency-text">Urgence: <strong>15</strong></span>
+                </div>
+            </div>
+        </nav>
+        <div class="header-banner">
+            <div class="slide-container">
+                <div class="slide active">
+                    <img src="images/image-1.avif" alt="Urgence médicale" class="slide-image">
+                    <div class="slide-content">
+                        <h2>Chaque Minute Compte</h2>
+                        <p>Apprenez les gestes qui sauvent pour réagir efficacement en cas d'urgence</p>
+                        <a href="#" class="cta-button">En savoir plus <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                <div class="slide">
+                    <img src="https://images.unsplash.com/photo-1564732005956-20420ebdab6a?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Sensibilisation aux urgences" class="slide-image">
+                    <div class="slide-content">
+                        <h2>Sensibilisation aux Urgences</h2>
+                        <p>Informez-vous sur les mesures préventives et les protocoles d'urgence</p>
+                        <a href="#" class="cta-button">Découvrir <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                <div class="slide">
+                    <img src="images/image-2.avif" alt="Formation premiers secours" class="slide-image">
+                    <div class="slide-content">
+                        <h2>Sauver des Vies</h2>
+                        <p>Nos formations et ressources pour faire face aux situations d'urgence</p>
+                        <a href="#" class="cta-button">S'inscrire <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                <div class="slider-controls">
+                    <button class="slider-btn prev"><i class="fas fa-chevron-left"></i></button>
+                    <div class="slider-dots">
+                        <span class="dot active" data-slide="0"></span>
+                        <span class="dot" data-slide="1"></span>
+                        <span class="dot" data-slide="2"></span>
+                    </div>
+                    <button class="slider-btn next"><i class="fas fa-chevron-right"></i></button>
+                </div>
+            </div>
+        </div>
+    </header>
+    
+    <main>
+        <section class="emergency-importance">
+            <div class="container">
+                <h2 class="section-title">L'Importance des Urgences Médicales</h2>
+                <div class="card-container">
+                    <div class="info-card">
+                        <div class="card-icon">
+                            <svg viewBox="0 0 24 24" class="heart-beat-icon">
+                                <path d="M12,21L10.55,19.7C5.4,15.36 2,12.28 2,8.5C2,5.42 4.42,3 7.5,3C9.24,3 10.91,3.81 12,5.09C13.09,3.81 14.76,3 16.5,3C19.58,3 22,5.42 22,8.5C22,12.28 18.6,15.36 13.45,19.7L12,21Z" fill="#e63946"/>
+                            </svg>
+                        </div>
+                        <h3>Le Temps est Crucial</h3>
+                        <p>En cas d'arrêt cardiaque, chaque minute sans RCP diminue les chances de survie de 7 à 10%.</p>
+                        <div class="timer-animation">
+                            <span class="timer-circle"></span>
+                            <span class="timer-text">4 min</span>
+                        </div>
+                    </div>
+
+                    <div class="info-card">
+                        <div class="card-icon">
+                            <svg viewBox="0 0 24 24" class="brain-icon">
+                                <path d="M16,21H8A5,5 0 0,1 3,16V9A5,5 0 0,1 8,4H10V2H14V4H16A5,5 0 0,1 21,9V16A5,5 0 0,1 16,21M16,19A3,3 0 0,0 19,16V9A3,3 0 0,0 16,6H8A3,3 0 0,0 5,9V16A3,3 0 0,0 8,19H16M12,10A2,2 0 0,1 14,12A2,2 0 0,1 12,14A2,2 0 0,1 10,12A2,2 0 0,1 12,10M12,7L13.25,8.75L12,10.5L10.75,8.75L12,7M8,14L9.25,12.25L10.5,14L9.25,15.75L8,14M16,14L17.25,12.25L18.5,14L17.25,15.75L16,14M12,16.5L13.25,15L14.5,16.75L12,18.5L9.5,16.75L10.75,15L12,16.5Z" fill="#457b9d"/>
+                            </svg>
+                        </div>
+                        <h3>Prévention des Séquelles</h3>
+                        <p>Une intervention rapide lors d'un AVC peut prévenir la perte permanente de fonctions cérébrales.</p>
+                        <div class="brain-animation">
+                            <svg viewBox="0 0 100 100" class="brain-wave">
+                                <path d="M0,50 Q25,30 50,50 Q75,70 100,50" stroke="#457b9d" fill="none" stroke-width="2"/>
+                            </svg>
+                        </div>
+                    </div>
+
+                    <div class="info-card">
+                        <div class="card-icon">
+                            <svg viewBox="0 0 24 24" class="pulse-icon">
+                                <path d="M3,12H6V19H9V12H12V19H15V12H18V19H21V12H24V9H21V2H18V9H15V2H12V9H9V2H6V9H3V12Z" fill="#e63946"/>
+                            </svg>
+                        </div>
+                        <h3>Formation aux Premiers Secours</h3>
+                        <p>Plus de 80% des arrêts cardiaques se produisent à domicile, où les compétences en premiers secours sont essentielles.</p>
+                        <div class="percentage-bar">
+                            <div class="percentage-fill"></div>
+                            <span class="percentage-text">80%</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="emergency-statistics">
+                    <div class="stat-item" data-value="70">
+                        <div class="stat-circle">
+                            <svg viewBox="0 0 36 36" class="circular-chart">
+                                <path class="circle-bg" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"/>
+                                <path class="circle" stroke-dasharray="70, 100" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"/>
+                            </svg>
+                            <span class="stat-number">70%</span>
+                        </div>
+                        <p>des vies pourraient être sauvées si plus de personnes connaissaient les gestes de premiers secours</p>
+                    </div>
+
+                    <div class="stat-item emergency-timeline" data-value="4">
+                        <h3>Chronologie d'une urgence</h3>
+                        <div class="timeline">
+                            <div class="timeline-item">
+                                <div class="timeline-dot"></div>
+                                <div class="timeline-content">
+                                    <h4>0-1 min</h4>
+                                    <p>Reconnaissance de l'urgence</p>
+                                </div>
+                            </div>
+                            <div class="timeline-item">
+                                <div class="timeline-dot"></div>
+                                <div class="timeline-content">
+                                    <h4>1-2 min</h4>
+                                    <p>Appel des secours (15)</p>
+                                </div>
+                            </div>
+                            <div class="timeline-item">
+                                <div class="timeline-dot"></div>
+                                <div class="timeline-content">
+                                    <h4>2-4 min</h4>
+                                    <p>Premiers gestes de secours</p>
+                                </div>
+                            </div>
+                            <div class="timeline-item">
+                                <div class="timeline-dot"></div>
+                                <div class="timeline-content highlight">
+                                    <h4>4-6 min</h4>
+                                    <p>Période critique pour la survie</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="cta-section">
+                    <h3>Prêt à apprendre les gestes qui sauvent ?</h3>
+                    <p>Inscrivez-vous à nos formations et devenez un maillon essentiel de la chaîne de secours.</p>
+                    <a href="#" class="cta-button large-btn">Commencer maintenant <i class="fas fa-heartbeat"></i></a>
+                </div>
+            </div>
+        </section>
+        
+        <section class="emergency-process">
+            <div class="container">
+                <h2 class="section-title">Comment Appeler les Urgences Médicales</h2>
+                <div class="emergency-call-container">
+                    <div class="emergency-phone">
+                        <div class="phone-wrapper">
+                            <svg class="phone-animation" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+                                <path class="phone-body" d="M70,40 L130,40 Q140,40 140,50 L140,150 Q140,160 130,160 L70,160 Q60,160 60,150 L60,50 Q60,40 70,40 Z" fill="#1d3557"/>
+                                <rect class="phone-screen" x="70" y="50" width="60" height="90" rx="2" fill="#a8dadc"/>
+                                <circle class="phone-button" cx="100" cy="150" r="10" fill="#e63946"/>
+                                <g class="phone-waves">
+                                    <path class="wave wave1" d="M150,80 Q170,80 170,100 Q170,120 150,120" fill="none" stroke="#e63946" stroke-width="3"/>
+                                    <path class="wave wave2" d="M160,70 Q190,70 190,100 Q190,130 160,130" fill="none" stroke="#e63946" stroke-width="3"/>
+                                </g>
+                            </svg>
+                        </div>
+                        <div class="emergency-number-display">
+                            <span>15</span>
+                            <div class="pulse-dots">
+                                <span class="dot"></span>
+                                <span class="dot"></span>
+                                <span class="dot"></span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="emergency-steps">
+                        <h3>Étapes à suivre en cas d'urgence</h3>
+                        <div class="steps-container">
+                            <div class="step-card">
+                                <div class="step-number">1</div>
+                                <div class="step-content">
+                                    <h4>Garder son calme</h4>
+                                    <p>Respirez profondément et essayez de rester calme pour communiquer clairement.</p>
+                                    <div class="breathing-animation">
+                                        <div class="circle-breath"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="step-card">
+                                <div class="step-number">2</div>
+                                <div class="step-content">
+                                    <h4>Composer le 15 (SAMU)</h4>
+                                    <p>En cas d'urgence médicale, appelez le 15 pour joindre le Service d'Aide Médicale Urgente.</p>
+                                    <div class="dialing-animation">
+                                        <div class="number">1</div>
+                                        <div class="number">5</div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="step-card">
+                                <div class="step-number">3</div>
+                                <div class="step-content">
+                                    <h4>Décrire la situation</h4>
+                                    <p>Expliquez clairement la situation, l'état de la victime et répondez aux questions du médecin régulateur.</p>
+                                    <div class="conversation-animation">
+                                        <div class="message-bubble left">Quelle est l'urgence?</div>
+                                        <div class="message-bubble right">La personne est inconsciente</div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="step-card">
+                                <div class="step-number">4</div>
+                                <div class="step-content">
+                                    <h4>Donner l'adresse exacte</h4>
+                                    <p>Précisez l'adresse complète, les points de repère et facilitez l'accès aux secours.</p>
+                                    <div class="location-animation">
+                                        <svg viewBox="0 0 100 100" class="map-pin">
+                                            <path d="M50,10 C32,10 20,22 20,40 C20,58 50,90 50,90 C50,90 80,58 80,40 C80,22 68,10 50,10 Z" fill="#e63946"/>
+                                            <circle cx="50" cy="40" r="10" fill="#1d3557"/>
+                                        </svg>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="step-card">
+                                <div class="step-number">5</div>
+                                <div class="step-content">
+                                    <h4>Suivre les instructions</h4>
+                                    <p>Écoutez attentivement et suivez les instructions du médecin régulateur jusqu'à l'arrivée des secours.</p>
+                                    <div class="instructions-animation">
+                                        <div class="instruction-step">Vérifier la respiration</div>
+                                        <div class="instruction-step">Position latérale de sécurité</div>
+                                        <div class="instruction-step">Massage cardiaque</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="emergency-info-box">
+                    <div class="info-icon">
+                        <i class="fas fa-info-circle"></i>
+                    </div>
+                    <div class="info-content">
+                        <h3>Informations importantes</h3>
+                        <ul class="info-list">
+                            <li>Le 15 (SAMU) : pour une urgence médicale</li>
+                            <li>Le 18 (Pompiers) : pour un accident, incendie</li>
+                            <li>Le 17 (Police) : pour un trouble à l'ordre public</li>
+                            <li>Le 112 : numéro d'urgence européen utilisable dans toute l'UE</li>
+                            <li>Le 114 : numéro d'urgence pour les personnes sourdes et malentendantes (SMS)</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="dos-donts-container">
+                    <div class="dos-container">
+                        <h3><i class="fas fa-check-circle"></i> À faire</h3>
+                        <ul class="action-list">
+                            <li>Parler clairement et calmement</li>
+                            <li>Donner des informations précises sur l'état de la victime</li>
+                            <li>Mentionner les antécédents médicaux importants</li>
+                            <li>Suivre les consignes du régulateur</li>
+                            <li>Envoyer quelqu'un accueillir les secours si possible</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="donts-container">
+                        <h3><i class="fas fa-times-circle"></i> À éviter</h3>
+                        <ul class="action-list">
+                            <li>Raccrocher avant que le régulateur ne vous y invite</li>
+                            <li>Déplacer la victime sauf en cas de danger immédiat</li>
+                            <li>Donner à boire ou à manger à la victime</li>
+                            <li>Administrer des médicaments sans avis médical</li>
+                            <li>Encombrer la ligne pour des situations non urgentes</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    
+    <footer>
+        <div class="footer-container">
+            <div class="footer-section about">
+                <div class="footer-logo">
+                    <svg class="logo-small" viewBox="0 0 200 60" xmlns="http://www.w3.org/2000/svg">
+                        <rect x="10" y="10" width="40" height="40" rx="8" fill="#e63946" class="pulse-animation"/>
+                        <path d="M30 15 L30 45 M15 30 L45 30" stroke="white" stroke-width="6" stroke-linecap="round"/>
+                        <text x="60" y="35" font-family="Arial, sans-serif" font-weight="bold" font-size="20" fill="#fff">EmergencyAlert</text>
+                    </svg>
+                </div>
+                <p>EmergencyAlert est dédié à sensibiliser le public sur l'importance des urgences médicales et à fournir des informations cruciales pour sauver des vies.</p>
+                <div class="social-icons">
+                    <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+            </div>
+            
+            <div class="footer-section links">
+                <h3>Liens Rapides</h3>
+                <ul>
+                    <li><a href="index.html">Accueil</a></li>
+                    <li><a href="index.html">À Propos</a></li>
+                    <li><a href="index.html">Services</a></li>
+                    <li><a href="index.html">Ressources</a></li>
+                    <li><a href="index.html">Contact</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-section contact">
+                <h3>Contact</h3>
+                <p><i class="fas fa-phone"></i> Urgence: <span class="emergency-number">15</span></p>
+                <p><i class="fas fa-envelope"></i> <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="a0c3cfced4c1c3d4e0c5cdc5d2c7c5cec3d9c1ccc5d2d48ec3cfcd">[email&#160;protected]</a></p>
+                <p><i class="fas fa-map-marker-alt"></i> 123 Rue de l'Hôpital, 75001 Paris</p>
+                <div class="emergency-info">
+                    <h4>Numéros d'urgence</h4>
+                    <p>SAMU: <span class="emergency-number">15</span></p>
+                    <p>Pompiers: <span class="emergency-number">18</span></p>
+                    <p>Numéro européen: <span class="emergency-number">112</span></p>
+                </div>
+            </div>
+            
+            <div class="footer-section newsletter">
+                <h3>Restez Informé</h3>
+                <p>Inscrivez-vous à notre newsletter pour recevoir des conseils sur les urgences médicales.</p>
+                <form id="newsletter-form">
+                    <input type="email" placeholder="Votre email" required>
+                    <button type="submit" class="btn-subscribe">S'abonner</button>
+                </form>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <div class="copyright">
+                <p>&copy; 2023 EmergencyAlert. Tous droits réservés.</p>
+            </div>
+            <div class="legal-links">
+                <a href="#">Politique de confidentialité</a>
+                <a href="#">Mentions légales</a>
+                <a href="#">CGU</a>
+            </div>
+        </div>
+        
+        <div class="emergency-banner">
+            <div class="banner-content">
+                <i class="fas fa-exclamation-triangle"></i>
+                <p>En cas d'urgence vitale, appelez immédiatement le <span class="emergency-number">15</span></p>
+                <i class="fas fa-exclamation-triangle"></i>
+            </div>
+        </div>
+    </footer>
+    
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="js/script.js"></script>
+</body>
+</html>
