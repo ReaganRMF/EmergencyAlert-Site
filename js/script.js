@@ -418,4 +418,15 @@ document.addEventListener('DOMContentLoaded', function() {
     // Lancer l'animation et l'observer au défilement
     initEmergencyAnimations();
     window.addEventListener('scroll', initEmergencyAnimations);
+
+    // Additional code to handle body padding when nav becomes sticky
+    const mainNav = document.querySelector('.main-nav');
+    
+    window.addEventListener('scroll', function() {
+        if (mainNav && mainNav.classList.contains('sticky-nav')) {
+            document.body.classList.add('has-sticky-nav');
+        } else {
+            document.body.classList.remove('has-sticky-nav');
+        }
+    });
 });

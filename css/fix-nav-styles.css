@@ -1,0 +1,35 @@
+/* Styles for sticky navigation */
+.sticky-nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    animation: slideDown 0.3s ease-in-out;
+}
+
+@keyframes slideDown {
+    from {
+        transform: translateY(-100%);
+    }
+    to {
+        transform: translateY(0);
+    }
+}
+
+/* Animation to adjust content when nav becomes sticky */
+body.has-sticky-nav {
+    padding-top: 60px; /* Adjust based on your nav height */
+}
+
+/* Mobile responsive adjustments for sticky nav */
+@media screen and (max-width: 768px) {
+    .sticky-nav .nav-container {
+        padding: 0.5rem 2rem;
+    }
+    
+    .sticky-nav .emergency-call {
+        transform: scale(0.9);
+    }
+}

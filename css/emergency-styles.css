@@ -492,6 +492,46 @@
     color: var(--primary-color);
 }
 
+/* Anchor navigation highlight effect */
+.section-highlight {
+    animation: sectionGlow 1.5s ease;
+}
+
+@keyframes sectionGlow {
+    0% {
+        box-shadow: 0 0 0 rgba(230, 57, 70, 0);
+    }
+    50% {
+        box-shadow: 0 0 30px rgba(230, 57, 70, 0.3);
+    }
+    100% {
+        box-shadow: 0 0 0 rgba(230, 57, 70, 0);
+    }
+}
+
+/* Animated nav link indicator */
+.nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: var(--primary-color);
+    transition: width 0.3s ease, transform 0.3s ease;
+}
+
+.nav-link:hover::after, .nav-link.active::after {
+    width: 100%;
+    transform: scaleX(1.05) translateY(-1px);
+}
+
+.nav-link.active::after {
+    height: 3px;
+    background-color: var(--primary-color);
+    box-shadow: 0 0 8px rgba(230, 57, 70, 0.5);
+}
+
 /* Responsive styles */
 @media screen and (max-width: 768px) {
     .emergency-call-container {

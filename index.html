@@ -5,10 +5,11 @@
     <title>EmergencyAlert - Urgences Médicales</title>
     <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="css/emergency-styles.css">
+    <link rel="stylesheet" href="css/fix-nav-styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
-    <header>
+    <header id="accueil">
         <div class="logo-container">
             <svg class="logo" viewBox="0 0 200 60" xmlns="http://www.w3.org/2000/svg">
                 <rect x="10" y="10" width="40" height="40" rx="8" fill="#e63946" class="pulse-animation"/>
@@ -19,11 +20,11 @@
         <nav class="main-nav">
             <div class="nav-container">
                 <ul class="nav-links">
-                    <li class="nav-item"><a href="index.html" class="nav-link active">Accueil</a></li>
-                    <li class="nav-item"><a href="index.html" class="nav-link">Urgences</a></li>
-                    <li class="nav-item"><a href="index.html" class="nav-link">Premiers Secours</a></li>
-                    <li class="nav-item"><a href="index.html" class="nav-link">Ressources</a></li>
-                    <li class="nav-item"><a href="index.html" class="nav-link">Contact</a></li>
+                    <li class="nav-item"><a href="#accueil" class="nav-link active">Accueil</a></li>
+                    <li class="nav-item"><a href="#importance" class="nav-link">Urgences</a></li>
+                    <li class="nav-item"><a href="#emergency-process" class="nav-link">Premiers Secours</a></li>
+                    <li class="nav-item"><a href="#resources" class="nav-link">Ressources</a></li>
+                    <li class="nav-item"><a href="#contact" class="nav-link">Contact</a></li>
                 </ul>
                 <div class="emergency-call">
                     <span class="blink-animation"><i class="fas fa-phone-alt"></i></span>
@@ -42,7 +43,7 @@
                     </div>
                 </div>
                 <div class="slide">
-                    <img src="https://images.unsplash.com/photo-1564732005956-20420ebdab6a?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Sensibilisation aux urgences" class="slide-image">
+                    <img src="images/image-3.jpg" alt="Sensibilisation aux urgences" class="slide-image">
                     <div class="slide-content">
                         <h2>Sensibilisation aux Urgences</h2>
                         <p>Informez-vous sur les mesures préventives et les protocoles d'urgence</p>
@@ -71,7 +72,7 @@
     </header>
     
     <main>
-        <section class="emergency-importance">
+        <section id="importance" class="emergency-importance">
             <div class="container">
                 <h2 class="section-title">L'Importance des Urgences Médicales</h2>
                 <div class="card-container">
@@ -174,7 +175,7 @@
             </div>
         </section>
         
-        <section class="emergency-process">
+        <section id="emergency-process" class="emergency-process">
             <div class="container">
                 <h2 class="section-title">Comment Appeler les Urgences Médicales</h2>
                 <div class="emergency-call-container">
@@ -278,7 +279,7 @@
                             <li>Le 15 (SAMU) : pour une urgence médicale</li>
                             <li>Le 18 (Pompiers) : pour un accident, incendie</li>
                             <li>Le 17 (Police) : pour un trouble à l'ordre public</li>
-                            <li>Le 112 : numéro d'urgence européen utilisable dans toute l'UE</li>
+                            <li>Le 112 : numéro d'urgence globale</li>
                             <li>Le 114 : numéro d'urgence pour les personnes sourdes et malentendantes (SMS)</li>
                         </ul>
                     </div>
@@ -309,9 +310,15 @@
                 </div>
             </div>
         </section>
+        
+        <section id="resources" class="cta-section">
+            <h3>Prêt à apprendre les gestes qui sauvent ?</h3>
+            <p>Inscrivez-vous à nos formations et devenez un maillon essentiel de la chaîne de secours.</p>
+            <a href="#" class="cta-button large-btn">Commencer maintenant <i class="fas fa-heartbeat"></i></a>
+        </section>
     </main>
     
-    <footer>
+    <footer id="contact">
         <div class="footer-container">
             <div class="footer-section about">
                 <div class="footer-logo">
@@ -333,19 +340,19 @@
             <div class="footer-section links">
                 <h3>Liens Rapides</h3>
                 <ul>
-                    <li><a href="index.html">Accueil</a></li>
-                    <li><a href="index.html">À Propos</a></li>
-                    <li><a href="index.html">Services</a></li>
-                    <li><a href="index.html">Ressources</a></li>
-                    <li><a href="index.html">Contact</a></li>
+                    <li><a href="#accueil">Accueil</a></li>
+                    <li><a href="#importance">Urgences</a></li>
+                    <li><a href="#emergency-process">Premiers Secours</a></li>
+                    <li><a href="#resources">Ressources</a></li>
+                    <li><a href="#contact">Contact</a></li>
                 </ul>
             </div>
             
             <div class="footer-section contact">
                 <h3>Contact</h3>
                 <p><i class="fas fa-phone"></i> Urgence: <span class="emergency-number">15</span></p>
-                <p><i class="fas fa-envelope"></i> <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="a0c3cfced4c1c3d4e0c5cdc5d2c7c5cec3d9c1ccc5d2d48ec3cfcd">[email&#160;protected]</a></p>
-                <p><i class="fas fa-map-marker-alt"></i> 123 Rue de l'Hôpital, 75001 Paris</p>
+                <p><i class="fas fa-envelope"></i> <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="8be8e4e5ffeae8ffcbeee6eef9eceee5e8f2eae7eef9ffa5e8e4e6">[email&#160;protected]</a></p>
+                <p><i class="fas fa-map-marker-alt"></i> 45 Rue de l'inconnue, Q/KUNDA MATETE/KINSAHSA</p>
                 <div class="emergency-info">
                     <h4>Numéros d'urgence</h4>
                     <p>SAMU: <span class="emergency-number">15</span></p>
@@ -366,7 +373,7 @@
         
         <div class="footer-bottom">
             <div class="copyright">
-                <p>&copy; 2023 EmergencyAlert. Tous droits réservés.</p>
+                <p>&copy; 2025 EmergencyAlert. Tous droits réservés.</p>
             </div>
             <div class="legal-links">
                 <a href="#">Politique de confidentialité</a>
@@ -385,5 +392,6 @@
     </footer>
     
     <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="js/script.js"></script>
+    <script src="js/navigation.js"></script>
 </body>
 </html>
