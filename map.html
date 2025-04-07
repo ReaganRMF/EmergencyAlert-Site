@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Carte des Hôpitaux et Centres de Santé</title>
+  <title>Carte des Établissements de Santé</title>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -19,23 +19,17 @@
 <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
 
 <script>
-  // Icônes personnalisés
+  // Icône hôpital / clinique
+  const hospitalIcon = L.icon({
+    iconUrl: 'https://cdn-icons-png.flaticon.com/512/3177/3177361.png',
+    iconSize: [30, 30],
+    iconAnchor: [15, 30],
+    popupAnchor: [0, -30]
+  });
+
+  // Icône position utilisateur
   const userIcon = L.icon({
     iconUrl: 'https://cdn-icons-png.flaticon.com/512/149/149071.png',
-    iconSize: [30, 30],
-    iconAnchor: [15, 30],
-    popupAnchor: [0, -30]
-  });
-
-  const hospitalIcon = L.icon({
-    iconUrl: 'https://cdn-icons-png.flaticon.com/512/2967/2967350.png',
-    iconSize: [30, 30],
-    iconAnchor: [15, 30],
-    popupAnchor: [0, -30]
-  });
-
-  const clinicIcon = L.icon({
-    iconUrl: 'https://cdn-icons-png.flaticon.com/512/901/901121.png',
     iconSize: [30, 30],
     iconAnchor: [15, 30],
     popupAnchor: [0, -30]
@@ -44,18 +38,18 @@
   function initMap(lat, lon) {
     const map = L.map('map').setView([lat, lon], 14);
 
-    // Fond de carte OpenStreetMap
+    // Fond de carte
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
       attribution: '© OpenStreetMap'
     }).addTo(map);
 
-    // Position de l'utilisateur
+    // Marqueur position actuelle
     L.marker([lat, lon], { icon: userIcon })
       .addTo(map)
       .bindPopup("Ta position actuelle")
       .openPopup();
 
-    // Overpass API pour hôpitaux et centres médicaux
+    // Requête Overpass : hôpitaux + centres médicaux
     const overpassUrl = `https://overpass-api.de/api/interpreter?data=[out:json];
       (
         node["amenity"="hospital"](around:5000,${lat},${lon});
@@ -70,21 +64,18 @@
           const placeLat = place.lat;
           const placeLon = place.lon;
           const name = place.tags.name || "Établissement de santé";
-          const isHospital = place.tags.amenity === "hospital";
-          const icon = isHospital ? hospitalIcon : clinicIcon;
-          const label = isHospital ? "🏥 Hôpital" : "🏪 Centre de santé";
 
-          L.marker([placeLat, placeLon], { icon: icon })
+          L.marker([placeLat, placeLon], { icon: hospitalIcon })
             .addTo(map)
-            .bindPopup(`${label}<br>${name}`);
+            .bindPopup(name);
         });
       })
       .catch(err => {
-        console.error("Erreur lors du chargement :", err);
+        console.error("Erreur de chargement des établissements :", err);
       });
   }
 
-  // Géolocalisation
+  // Géolocalisation utilisateur
   if (navigator.geolocation) {
     navigator.geolocation.getCurrentPosition(
       pos => {
