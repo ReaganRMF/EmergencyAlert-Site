@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Hôpitaux proches de moi</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Leaflet CSS -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+  <style>
+    #map { height: 100vh; }
+  </style>
+</head>
+<body>
+
+<div id="map"></div>
+
+<!-- Leaflet JS -->
+<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+
+<script>
+  // Fonction principale
+  function initMap(lat, lon) {
+    const map = L.map('map').setView([lat, lon], 14);
+
+    // Carte de fond
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      attribution: '© OpenStreetMap'
+    }).addTo(map);
+
+    // Marqueur utilisateur
+    L.marker([lat, lon]).addTo(map)
+      .bindPopup("Ta position actuelle")
+      .openPopup();
+
+    // Requête Overpass API pour hôpitaux proches
+    const overpassUrl = `https://overpass-api.de/api/interpreter?data=[out:json];
+      node
+        ["amenity"="hospital"]
+        (around:5000,${lat},${lon});
+      out;`;
+
+    fetch(overpassUrl)
+      .then(res => res.json())
+      .then(data => {
+        data.elements.forEach(hospital => {
+          const hospLat = hospital.lat;
+          const hospLon = hospital.lon;
+          const name = hospital.tags.name || "Hôpital sans nom";
+
+          L.marker([hospLat, hospLon])
+            .addTo(map)
+            .bindPopup(name);
+        });
+      })
+      .catch(err => {
+        console.error("Erreur lors du chargement des hôpitaux :", err);
+      });
+  }
+
+  // Récupération de la position
+  if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(
+      pos => {
+        const lat = pos.coords.latitude;
+        const lon = pos.coords.longitude;
+        initMap(lat, lon);
+      },
+      err => {
+        alert("Erreur de géolocalisation : " + err.message);
+      }
+    );
+  } else {
+    alert("La géolocalisation n'est pas supportée par ce navigateur.");
+  }
+</script>
+
+</body>
+</html>
