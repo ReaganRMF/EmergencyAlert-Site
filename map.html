@@ -1,96 +1,101 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>Carte des Établissements de Santé</title>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <!-- Leaflet CSS -->
-  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
-  <style>
-    #map { height: 100vh; }
-  </style>
+<head>
+    <title>Carte des Établissements de Santé</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Leaflet CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <style>
+        #map {
+            height: 100vh;
+        }
+    </style>
 </head>
+
 <body>
 
-<div id="map"></div>
+    <div id="map"></div>
 
-<!-- Leaflet JS -->
-<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    <!-- Leaflet JS -->
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
 
-<script>
-  // Icône hôpital / clinique
-  const hospitalIcon = L.icon({
-    iconUrl: 'https://cdn-icons-png.flaticon.com/512/3177/3177361.png',
-    iconSize: [30, 30],
-    iconAnchor: [15, 30],
-    popupAnchor: [0, -30]
-  });
+    <script>
+        // Icône hôpital / clinique
+        const hospitalIcon = L.icon({
+            iconUrl: 'https://cdn-icons-png.flaticon.com/512/3177/3177361.png',
+            iconSize: [30, 30],
+            iconAnchor: [15, 30],
+            popupAnchor: [0, -30]
+        });
 
-  // Icône position utilisateur
-  const userIcon = L.icon({
-    iconUrl: 'https://cdn-icons-png.flaticon.com/512/149/149071.png',
-    iconSize: [30, 30],
-    iconAnchor: [15, 30],
-    popupAnchor: [0, -30]
-  });
+        // Icône position utilisateur
+        const userIcon = L.icon({
+            iconUrl: 'https://cdn-icons-png.flaticon.com/512/149/149071.png',
+            iconSize: [30, 30],
+            iconAnchor: [15, 30],
+            popupAnchor: [0, -30]
+        });
 
-  function initMap(lat, lon) {
-    const map = L.map('map').setView([lat, lon], 14);
+        function initMap(lat, lon) {
+            const map = L.map('map').setView([lat, lon], 14);
 
-    // Fond de carte
-    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-      attribution: '© OpenStreetMap'
-    }).addTo(map);
+            // Fond de carte
+            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                attribution: '© OpenStreetMap'
+            }).addTo(map);
 
-    // Marqueur position actuelle
-    L.marker([lat, lon], { icon: userIcon })
-      .addTo(map)
-      .bindPopup("Ta position actuelle")
-      .openPopup();
+            // Marqueur position actuelle
+            L.marker([lat, lon], { icon: userIcon })
+                .addTo(map)
+                .bindPopup("Ta position actuelle")
+                .openPopup();
 
-    // Requête Overpass : hôpitaux + centres médicaux
-    const overpassUrl = `https://overpass-api.de/api/interpreter?data=[out:json];
+            // Requête Overpass : hôpitaux + centres médicaux
+            const overpassUrl = `https://overpass-api.de/api/interpreter?data=[out:json];
       (
         node["amenity"="hospital"](around:5000,${lat},${lon});
         node["amenity"="clinic"](around:5000,${lat},${lon});
       );
       out body;`;
 
-    fetch(overpassUrl)
-      .then(res => res.json())
-      .then(data => {
-        data.elements.forEach(place => {
-          const placeLat = place.lat;
-          const placeLon = place.lon;
-          const name = place.tags.name || "Établissement de santé";
+            fetch(overpassUrl)
+                .then(res => res.json())
+                .then(data => {
+                    data.elements.forEach(place => {
+                        const placeLat = place.lat;
+                        const placeLon = place.lon;
+                        const name = place.tags.name || "Établissement de santé";
 
-          L.marker([placeLat, placeLon], { icon: hospitalIcon })
-            .addTo(map)
-            .bindPopup(name);
-        });
-      })
-      .catch(err => {
-        console.error("Erreur de chargement des établissements :", err);
-      });
-  }
+                        L.marker([placeLat, placeLon], { icon: hospitalIcon })
+                            .addTo(map)
+                            .bindPopup(name);
+                    });
+                })
+                .catch(err => {
+                    console.error("Erreur de chargement des établissements :", err);
+                });
+        }
 
-  // Géolocalisation utilisateur
-  if (navigator.geolocation) {
-    navigator.geolocation.getCurrentPosition(
-      pos => {
-        const lat = pos.coords.latitude;
-        const lon = pos.coords.longitude;
-        initMap(lat, lon);
-      },
-      err => {
-        alert("Erreur de géolocalisation : " + err.message);
-      }
-    );
-  } else {
-    alert("La géolocalisation n'est pas supportée.");
-  }
-</script>
+        // Géolocalisation utilisateur
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(
+                pos => {
+                    const lat = pos.coords.latitude;
+                    const lon = pos.coords.longitude;
+                    initMap(lat, lon);
+                },
+                err => {
+                    alert("Erreur de géolocalisation : " + err.message);
+                }
+            );
+        } else {
+            alert("La géolocalisation n'est pas supportée.");
+        }
+    </script>
 
 </body>
+
 </html>
